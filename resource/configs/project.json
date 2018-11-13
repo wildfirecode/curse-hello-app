@@ -36,30 +36,14 @@
 					]
 				},
 				{
-					"target": "badgeChance",
-					"components": [
-						{
-							"script": "game/components/Badge",
-							"enabled": true,
-							"injection": {
-								"name": "chance"
-							}
-						}
-					]
-				},
-				{
 					"target": "btnStart",
 					"components": [
 						{
-							"script": "game/components/ButtonStart",
+							"script": "game/components/Breath",
 							"enabled": true,
 							"injection": {
-								"type": {
-									"ddd": {
-										"aaa": "bbb"
-									},
-									"sdf": "sdf"
-								}
+								"duration": "3000",
+								"scaleOffset": "0.1"
 							}
 						},
 						{
@@ -69,34 +53,6 @@
 								"dpm": "app_id.202.7.1",
 								"dcm": "213.oaid.0.0"
 							}
-						},
-						{
-							"script": "game/components/Breath",
-							"injection": {
-								"duration": 3000,
-								"scaleOffset": "0.1"
-							},
-							"enabled": true
-						}
-					]
-				},
-				{
-					"target": "btnRule",
-					"components": [
-						{
-							"script": "game/components/ButtonRule",
-							"injection": {
-								"type": 2
-							},
-							"enabled": true
-						},
-						{
-							"script": "game/components/BuriedPointButton",
-							"injection": {
-								"dpm": "app_id.202.7.2",
-								"dcm": "213.oaid.0.0"
-							},
-							"enabled": true
 						}
 					]
 				}

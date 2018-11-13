@@ -2591,6 +2591,73 @@ var GameConfig = (function (_super) {
     return GameConfig;
 }(egret.HashObject));
 
+var GameInfo = (function () {
+    function GameInfo() {
+    }
+    GameInfo.prototype.update = function (data) {
+        this.data = data;
+        this.data.oldMaxScore = this.data ? this.maxScore : 0;
+    };
+    Object.defineProperty(GameInfo.prototype, "statusCode", {
+        get: function () {
+            return this.data.status.code;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(GameInfo.prototype, "maxScore", {
+        get: function () {
+            return this.data.maxScore || 0;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(GameInfo.prototype, "percentage", {
+        get: function () {
+            return this.data.percentage;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(GameInfo.prototype, "credits", {
+        get: function () {
+            return this.data.credits;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(GameInfo.prototype, "status", {
+        get: function () {
+            return this.data.status;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(GameInfo.prototype, "gameId", {
+        get: function () {
+            return this.data.gameId;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(GameInfo.prototype, "consumerId", {
+        get: function () {
+            return this.data.consumerId;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return GameInfo;
+}());
+
+var gameInfo = new GameInfo();
+var authData = {};
+
+var SCENE_MENU = 'scene_menu';
+var PANEL_ALERT = 'panel_alert';
+var PANEL_RULE = 'panel_rule';
+var PANEL_RESULT = 'panel_result';
+
 function rotateLeft(lValue, iShiftBits) {
     return (lValue << iShiftBits) | (lValue >>> (32 - iShiftBits));
 }
@@ -2861,68 +2928,6 @@ var WebService = (function () {
 }());
 var webService = new WebService();
 
-var GameInfo = (function () {
-    function GameInfo() {
-    }
-    GameInfo.prototype.update = function (data) {
-        this.data = data;
-        this.data.oldMaxScore = this.data ? this.maxScore : 0;
-    };
-    Object.defineProperty(GameInfo.prototype, "statusCode", {
-        get: function () {
-            return this.data.status.code;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(GameInfo.prototype, "maxScore", {
-        get: function () {
-            return this.data.maxScore || 0;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(GameInfo.prototype, "percentage", {
-        get: function () {
-            return this.data.percentage;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(GameInfo.prototype, "credits", {
-        get: function () {
-            return this.data.credits;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(GameInfo.prototype, "status", {
-        get: function () {
-            return this.data.status;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(GameInfo.prototype, "gameId", {
-        get: function () {
-            return this.data.gameId;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(GameInfo.prototype, "consumerId", {
-        get: function () {
-            return this.data.consumerId;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    return GameInfo;
-}());
-
-var gameInfo = new GameInfo();
-var authData = {};
-
 function getToken() {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
@@ -2939,21 +2944,6 @@ function getToken() {
                         resolve();
                     }
                 })];
-        });
-    });
-}
-function getInfo() {
-    return __awaiter(this, void 0, void 0, function () {
-        var _a, _b;
-        return __generator(this, function (_c) {
-            switch (_c.label) {
-                case 0:
-                    _b = (_a = gameInfo).update;
-                    return [4, webService.callApi('/ngame/new/getInfo', { id: GameConfig.gameConfig.gameId }, 'get')];
-                case 1:
-                    _b.apply(_a, [_c.sent()]);
-                    return [2];
-            }
         });
     });
 }
@@ -3085,13 +3075,6 @@ function getSubmitResult(orderId) {
     });
 }
 
-var SCENE_MENU = 'scene_menu';
-var SCENE_PLAY = 'scene_play';
-var SCENE_FINAL_REWARD = 'scene_final_reward';
-var PANEL_ALERT = 'panel_alert';
-var PANEL_RULE = 'panel_rule';
-var PANEL_RESULT = 'panel_result';
-
 var MainService = (function (_super) {
     __extends(MainService, _super);
     function MainService() {
@@ -3106,22 +3089,14 @@ var MainService = (function (_super) {
                         return [4, _super.prototype.start.call(this)];
                     case 1:
                         _a.sent();
-                        return [4, Promise.all([
-                                getInfo(),
-                            ])];
-                    case 2:
-                        _a.sent();
                         return [2];
                 }
             });
         });
     };
     MainService.prototype.afterStart = function () {
-        var code = gameInfo.statusCode;
-        var sceneName = code == 4 || code == 5 ? SCENE_FINAL_REWARD :
-            SCENE_MENU;
         removeAllPupUp();
-        SceneController.popAll(sceneName);
+        SceneController.popAll(SCENE_MENU);
     };
     MainService.prototype.tryStartGame = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -3269,21 +3244,8 @@ var BuriedPointService = (function (_super) {
     };
     BuriedPointService.prototype.log = function (name, type) {
         var logPoint = this._buriedPoints[name];
-        var consumerId = gameInfo.consumerId;
-        var appId = GameConfig.appConfig.appId;
         var dpm = logPoint.dpm, dcm = logPoint.dcm;
-        if (type == 'exposure') {
-            return JSONP('//embedlog.duiba.com.cn/exposure/standard', {
-                dpm: dpm, dcm: dcm, consumerId: consumerId, appId: appId,
-            }, 'get').catch(function (e) {
-            });
-        }
-        else {
-            return webService.callApi('/log/click', {
-                dpm: dpm, dcm: dcm, consumerId: consumerId, appId: appId
-            }, 'get').catch(function (e) {
-            });
-        }
+        console.log('发了个曝光埋点', 'dpm', dpm, 'dcm', dcm);
     };
     return BuriedPointService;
 }(Service));
@@ -3515,72 +3477,6 @@ var SceneMenu = (function (_super) {
     return SceneMenu;
 }(CurseComponent));
 
-var Badge = (function (_super) {
-    __extends(Badge, _super);
-    function Badge() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.name = '';
-        _this.lab = null;
-        return _this;
-    }
-    Badge.prototype.onCreate = function () {
-        _super.prototype.onCreate.call(this);
-        this.registerEvent(badgeService, BADGE_CHANGED, this.onBadgeChange, this);
-        this.registerEvent(this.host, egret.Event.ADDED_TO_STAGE, this.onAddedToStage, this);
-    };
-    Badge.prototype.awake = function () {
-        _super.prototype.awake.call(this);
-        this.update();
-    };
-    Badge.prototype.sleep = function () {
-        _super.prototype.sleep.call(this);
-    };
-    Badge.prototype.onBadgeChange = function (event) {
-        var _a = event.data, name = _a.name, number = _a.number;
-        if (name == this.name) {
-            this.setNum(number);
-        }
-    };
-    Badge.prototype.update = function () {
-        this.setNum(badgeService.getNumber(this.name));
-    };
-    Badge.prototype.setNum = function (value) {
-        this.lab.text = value + '';
-    };
-    Badge.prototype.onAddedToStage = function (event) {
-        this.update();
-    };
-    return Badge;
-}(CurseComponent));
-
-var ButtonStart = (function (_super) {
-    __extends(ButtonStart, _super);
-    function ButtonStart() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    ButtonStart.prototype.onCreate = function () {
-        _super.prototype.onCreate.call(this);
-        this.registerEvent(this.host, egret.TouchEvent.TOUCH_TAP, this.onHostTap, this);
-    };
-    ButtonStart.prototype.onHostTap = function (event) {
-        catchError(this.tryStart());
-    };
-    ButtonStart.prototype.tryStart = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4, mainService.tryStartGame()];
-                    case 1:
-                        _a.sent();
-                        SceneController.goto(SCENE_PLAY);
-                        return [2];
-                }
-            });
-        });
-    };
-    return ButtonStart;
-}(CurseComponent));
-
 var BuriedPointButton = (function (_super) {
     __extends(BuriedPointButton, _super);
     function BuriedPointButton() {
@@ -3633,21 +3529,6 @@ var Breath = (function (_super) {
         console.log('hello');
     };
     return Breath;
-}(CurseComponent));
-
-var ButtonRule = (function (_super) {
-    __extends(ButtonRule, _super);
-    function ButtonRule() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    ButtonRule.prototype.onCreate = function () {
-        _super.prototype.onCreate.call(this);
-        this.registerEvent(this.host, egret.TouchEvent.TOUCH_TAP, this.onHostTap, this);
-    };
-    ButtonRule.prototype.onHostTap = function (event) {
-        PanelController.instance.show(PANEL_RULE);
-    };
-    return ButtonRule;
 }(CurseComponent));
 
 var ScenePlay = (function (_super) {

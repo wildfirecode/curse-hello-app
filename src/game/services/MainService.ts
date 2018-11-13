@@ -21,21 +21,21 @@ class MainService extends Service {
 
 		await super.start();
 
-		await Promise.all([
-			api.getInfo(),
-			//api.getCredits(),
-			//api.getPrizeInfo(drawPluginId),
-			//api.plugDrawInfo(drawPluginId),
-		])
+		// await Promise.all([
+		// 	api.getInfo(),
+		// 	//api.getCredits(),
+		// 	//api.getPrizeInfo(drawPluginId),
+		// 	//api.plugDrawInfo(drawPluginId),
+		// ])
 	}
 
 	afterStart() {
-		const code = gameInfo.statusCode;
-		const sceneName = code == 4 || code == 5 ? SCENE_FINAL_REWARD :
-			SCENE_MENU;
+		// const code = gameInfo.statusCode;
+		// const sceneName = code == 4 || code == 5 ? SCENE_FINAL_REWARD :
+		// 	SCENE_MENU;
 
 		PopUpManager.removeAllPupUp();
-		SceneController.popAll(sceneName);
+		SceneController.popAll(SCENE_MENU);
 	}
 
 	async tryStartGame() {
