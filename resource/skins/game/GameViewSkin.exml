@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="game.GameViewSkin" width="400" height="300" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Rect width="100%" height="100%" strokeColor="0x444444" strokeWeight="2" locked="true"/>
+	<e:Label id="labCD" text="10" horizontalCenter="0" verticalCenter="0" textColor="0x707070" size="60" locked="true"/>
+	<e:Label id="labScore" text="0" x="10" y="9" textColor="0x00ff29" locked="true"/>
+	<e:Group id="container" left="10" right="10" top="10" bottom="10">
+		<e:Rect id="ball" width="20" height="20" fillColor="0x0091ff" ellipseWidth="20" ellipseHeight="20" anchorOffsetX="10" anchorOffsetY="10" x="55" y="140"/>
+		<e:Component id="target" x="158" y="84" skinName="game.TargetSkin"/>
+	</e:Group>
+</e:Skin>

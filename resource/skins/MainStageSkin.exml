@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<e:Skin class="MainStageSkin" width="750" height="1334" xmlns:e="http://ns.egret.com/eui" xmlns:ns1="*" xmlns:w="http://ns.egret.com/wing">
+	<e:Group id="sceneContainer" width="100%" height="100%"/>
+	<e:Group id="popLayer" width="100%" height="100%" touchEnabled="false"/>
+	<ns1:Toast id="toast" skinName="component.ToastSkin" width="100%" height="100%" touchEnabled="false" touchChildren="false"/>
+</e:Skin>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="component.ReadyGoSkin" xmlns:e="http://ns.egret.com/eui">
+    <e:Rect id="bg" width="100%" fillAlpha="0.7" verticalCenter="0" height="130" />
+    <e:Label id="lab" text="Ready" size="100" italic="true" horizontalCenter="0" verticalCenter="0" />
+</e:Skin>

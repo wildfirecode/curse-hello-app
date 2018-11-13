@@ -1,0 +1,239 @@
+{
+	"settings": {
+		"services": [
+			"storage",
+			"main",
+			"defense",
+			"buriedPoint",
+			"badge"
+		],
+		"componentSuperClasses": [
+			"MyComponent",
+			"CurseComponent"
+		],
+		"serviceSuperClasses": [
+			"Service"
+		]
+	},
+	"bindings": [
+		{
+			"name": "scene_menu",
+			"skin": "scene.SceneMenuSkin",
+			"resGroups": [
+				"common"
+			],
+			"bindings": [
+				{
+					"target": "this",
+					"components": [
+						{
+							"script": "game/components/SceneMenu",
+							"enabled": true,
+							"injection": {
+								"type": "1"
+							}
+						}
+					]
+				},
+				{
+					"target": "badgeChance",
+					"components": [
+						{
+							"script": "game/components/Badge",
+							"enabled": true,
+							"injection": {
+								"name": "chance"
+							}
+						}
+					]
+				},
+				{
+					"target": "btnStart",
+					"components": [
+						{
+							"script": "game/components/ButtonStart",
+							"enabled": true,
+							"injection": {
+								"type": {
+									"ddd": {
+										"aaa": "bbb"
+									},
+									"sdf": "sdf"
+								}
+							}
+						},
+						{
+							"script": "game/components/BuriedPointButton",
+							"enabled": true,
+							"injection": {
+								"dpm": "app_id.202.7.1",
+								"dcm": "213.oaid.0.0"
+							}
+						},
+						{
+							"script": "game/components/Breath",
+							"injection": {
+								"duration": 3000,
+								"scaleOffset": "0.1"
+							},
+							"enabled": true
+						}
+					]
+				},
+				{
+					"target": "btnRule",
+					"components": [
+						{
+							"script": "game/components/ButtonRule",
+							"injection": {
+								"type": 2
+							},
+							"enabled": true
+						},
+						{
+							"script": "game/components/BuriedPointButton",
+							"injection": {
+								"dpm": "app_id.202.7.2",
+								"dcm": "213.oaid.0.0"
+							},
+							"enabled": true
+						}
+					]
+				}
+			],
+			"deleteConfirmPop": false
+		},
+		{
+			"name": "scene_play",
+			"skin": "scene.ScenePlaySkin",
+			"resGroups": [
+				"play"
+			],
+			"bindings": [
+				{
+					"target": "this",
+					"components": [
+						{
+							"script": "game/components/ScenePlay",
+							"injection": {},
+							"enabled": true
+						}
+					]
+				},
+				{
+					"target": "btnBack",
+					"components": [
+						{
+							"script": "game/components/ButtonBack",
+							"enabled": true
+						}
+					]
+				},
+				{
+					"target": "gameView",
+					"components": [
+						{
+							"script": "game/components/GameView",
+							"enabled": true,
+							"injection": {
+								"showLog": "false"
+							}
+						}
+					]
+				},
+				{
+					"target": "gameView.ball",
+					"components": [
+						{
+							"script": "game/components/game/Ball",
+							"enabled": true,
+							"injection": {
+								"bounds": {
+									"width": "550",
+									"height": "400"
+								}
+							}
+						}
+					]
+				},
+				{
+					"target": "readyGo",
+					"components": [
+						{
+							"script": "game/components/ReadyGo",
+							"enabled": true,
+							"injection": {}
+						}
+					]
+				},
+				{
+					"target": "gameView.target",
+					"components": [
+						{
+							"script": "game/components/game/Target",
+							"enabled": true,
+							"injection": {}
+						}
+					]
+				}
+			],
+			"deleteConfirmPop": false
+		},
+		{
+			"name": "panel_rule",
+			"skin": "panel.PanelRuleSkin",
+			"resGroups": [],
+			"bindings": [
+				{
+					"target": "this",
+					"components": [
+						{
+							"script": "game/components/PanelRule",
+							"injection": {
+								"button": "确定"
+							},
+							"enabled": true
+						}
+					]
+				}
+			],
+			"deleteConfirmPop": false
+		},
+		{
+			"name": "panel_result",
+			"skin": "panel.PanelResultSkin",
+			"resGroups": [],
+			"bindings": [
+				{
+					"target": "this",
+					"components": [
+						{
+							"script": "game/components/PanelResult",
+							"enabled": true,
+							"injection": {}
+						}
+					]
+				}
+			],
+			"deleteConfirmPop": false
+		},
+		{
+			"name": "panel_alert",
+			"skin": "panel.PanelAlertSkin",
+			"resGroups": [],
+			"bindings": [
+				{
+					"target": "this",
+					"components": [
+						{
+							"script": "game/components/PanelAlert",
+							"enabled": true,
+							"injection": {}
+						}
+					]
+				}
+			],
+			"deleteConfirmPop": false
+		}
+	]
+}

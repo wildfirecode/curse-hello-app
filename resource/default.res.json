@@ -1,0 +1,36 @@
+{
+	"groups": [
+		{
+			"keys": "",
+			"name": "panels"
+		},
+		{
+			"keys": "lang,project-config",
+			"name": "common"
+		},
+		{
+			"keys": "",
+			"name": "play"
+		},
+		{
+			"keys": "",
+			"name": "mission"
+		},
+		{
+			"keys": "",
+			"name": "draw_reward"
+		}
+	],
+	"resources": [
+		{
+			"url": "configs/lang.json",
+			"type": "json",
+			"name": "lang"
+		},
+		{
+			"url": "configs/project.json",
+			"type": "json",
+			"name": "project-config"
+		}
+	]
+}

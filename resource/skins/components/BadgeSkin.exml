@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="component.BadgeSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Rect ellipseWidth="30" ellipseHeight="30" fillColor="0xff0000" height="30" width="100%" strokeColor="0xffffff" strokeWeight="2"/>
+	<e:Label id="lab" text="0" left="8" right="8" size="24" verticalCenter="0"/>
+</e:Skin>

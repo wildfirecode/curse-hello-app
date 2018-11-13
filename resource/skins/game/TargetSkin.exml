@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="game.TargetSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+    <e:Rect id="target" width="20" height="20" ellipseWidth="1000" ellipseHeight="1000" strokeColor="0x0091FF"
+            strokeWeight="2" fillAlpha="0" anchorOffsetX="10" anchorOffsetY="10"  strokeAlpha="0.3"/>
+    <e:Rect id="avatar" width="20" height="20" ellipseWidth="1000" ellipseHeight="1000" strokeColor="0x0091FF"
+            strokeWeight="2" fillAlpha="0" anchorOffsetX="10" anchorOffsetY="10" />
+</e:Skin>

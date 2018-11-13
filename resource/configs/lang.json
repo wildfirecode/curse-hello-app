@@ -1,0 +1,22 @@
+{
+	"need_login": "请先登录!",
+	"net_error": "网络开了个小差",
+	"current_score": "本局分数\n{0}分",
+	"max_score": "历史最佳\n{0}分",
+	"score_unit": "分",
+	"free": "免费",
+	"my_credit": "我的",
+	"no_more_credits": "不足",
+	"revive_cost": "是否愿意花费{0}{1}在当前游戏复活一次？",
+	"revive_failed": "复活失败",
+	"rank_first": "冠军",
+	"rank_second": "亚军",
+	"rank_third": "季军",
+	"rank_num": "第{0}名",
+	"rank_out": "未上榜",
+	"me": "我",
+	"rank_max_score": "我的历史最高分: {0}分",
+	"rank_reward_content": "您的排名: {0}\n您的奖品: {1}\n您的ID: {2}",
+
+	"result_text": "得分：{0}"
+}

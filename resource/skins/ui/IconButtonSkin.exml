@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="ui.IconButtonSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ns1="*" states="up,down" >
+    <e:Image id="iconDisplay" source="" horizontalCenter="0" verticalCenter="0" scaleX.down="0.95" scaleY.down="0.95"/>
+</e:Skin>

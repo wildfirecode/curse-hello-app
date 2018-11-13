@@ -1,0 +1,29 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "es5",
+		"noImplicitAny": false,
+		"sourceMap": true,
+		"removeComments": true,
+		"importHelpers": true,
+		"experimentalDecorators": true,
+		"allowJs": true,
+		"lib": [
+			"es5",
+			"dom",
+			"es2015.promise"
+		],
+		"baseUrl": "./",
+		"paths": {
+			"@alienlib/*": ["alienlib/src/*"],
+			"@core/*": ["src/core/*"]
+		}
+	},
+	"exclude": [
+		"node_modules",
+		"scripts",
+		"bin-debug",
+		"bin-release",
+		"design"
+	]
+}

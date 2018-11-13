@@ -1,1 +1,1 @@
-# curse-hello-app
+# Game Template for curse

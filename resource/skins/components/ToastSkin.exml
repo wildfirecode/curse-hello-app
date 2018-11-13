@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<e:Skin class="component.ToastSkin" width="750" height="400" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Group id="grp" horizontalCenter="0.5" verticalCenter="-100">
+		<e:Rect ellipseWidth="20" ellipseHeight="20" fillAlpha="0.7" left="-20" right="-20" top="-20" bottom="-20"/>
+		<e:Label id="labContent" text="标签" strokeColor="0xc96914" horizontalCenter="0" verticalCenter="0" size="28" textColor="0xffffff"/>
+	</e:Group>
+</e:Skin>

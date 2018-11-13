@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="scene.SceneMenuSkin" width="750" height="1334" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:tween="egret.tween.*">
+	<w:Declarations>
+		<tween:TweenGroup id="enter">
+			<tween:TweenItem target="{grpStart}">
+				<tween:To duration="250">
+					<tween:props>
+						<e:Object bottom="{140}"/>
+					</tween:props>
+				</tween:To>
+			</tween:TweenItem>
+			<tween:TweenItem target="{btnRule}">
+				<tween:To duration="250">
+					<tween:props>
+						<e:Object y="{30}"/>
+					</tween:props>
+				</tween:To>
+			</tween:TweenItem>
+		</tween:TweenGroup>
+		<tween:TweenGroup id="leave">
+			<tween:TweenItem target="{grpStart}">
+				<tween:To duration="200">
+					<tween:props>
+						<e:Object bottom="{-124}"/>
+					</tween:props>
+				</tween:To>
+			</tween:TweenItem>
+			<tween:TweenItem target="{btnRule}">
+				<tween:To duration="200">
+					<tween:props>
+						<e:Object y="{-60}"/>
+					</tween:props>
+				</tween:To>
+			</tween:TweenItem>
+		</tween:TweenGroup>
+	</w:Declarations>
+	<e:Group id="grpStart" bottom="-124" horizontalCenter="0" width="270" height="124">
+		<e:Button id="btnStart" label="Start" skinName="ui.ButtonSkin" width="270" height="124"/>
+	</e:Group>
+	<e:Button id="btnRule" label="Rule" skinName="ui.ButtonSkin" x="618" y="-60"/>
+	<e:Label id="lab" text="WaveLabel" y="366.42" x="300.5" textColor="0x1e1e1e"/>
+	<e:Label text="SceneMenu" verticalCenter="0" horizontalCenter="0"/>
+	<e:Component id="badgeChance" x="439" skinName="component.BadgeSkin" verticalCenter="-11"/>
+</e:Skin>

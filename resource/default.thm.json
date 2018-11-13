@@ -1,0 +1,24 @@
+{
+	"skins": {},
+	"autoGenerateExmlsList": true,
+	"exmls": [
+		"resource/skins/components/BadgeSkin.exml",
+		"resource/skins/components/ReadyGoSkin.exml",
+		"resource/skins/components/ToastSkin.exml",
+		"resource/skins/game/TargetSkin.exml",
+		"resource/skins/game/GameViewSkin.exml",
+		"resource/skins/ui/ProgressSkin.exml",
+		"resource/skins/LoadingViewSkin.exml",
+		"resource/skins/MainStageSkin.exml",
+		"resource/skins/ui/ButtonSkin.exml",
+		"resource/skins/panels/PanelAlertSkin.exml",
+		"resource/skins/ui/CloseButtonSkin.exml",
+		"resource/skins/panels/PanelResultSkin.exml",
+		"resource/skins/panels/PanelRuleSkin.exml",
+		"resource/skins/scenes/SceneFinalRewardSkin.exml",
+		"resource/skins/scenes/SceneMenuSkin.exml",
+		"resource/skins/scenes/ScenePlaySkin.exml",
+		"resource/skins/ui/IconButtonSkin.exml"
+	],
+	"path": "resource/default.thm.json"
+}
